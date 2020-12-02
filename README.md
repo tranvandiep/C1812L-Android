@@ -16,9 +16,11 @@ SQLLite:
 		- Sua food vao CSDL
 		- Xoa food khoi CSDL
 ===================================================
+<code>
 create table food (
 	_id integer primary key autoincrement,
 	title varchar(50),
 	content text,
 	price float
 )
+</code>
