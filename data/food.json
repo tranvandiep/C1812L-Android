@@ -1,0 +1,38 @@
+[
+	{
+		"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+		"title": "Pizze 01",
+		"content": "xin chao",
+		"price": 2000
+	}, {
+		"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+		"title": "Pizze 02",
+		"content": "xin chao",
+		"price": 10000
+	}, {
+		"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+		"title": "Pizze 03",
+		"content": "xin chao",
+		"price": 90000
+	}, {
+		"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+		"title": "Pizze 04",
+		"content": "xin chao",
+		"price": 25000
+	}, {
+		"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+		"title": "Pizze 05",
+		"content": "xin chao",
+		"price": 10000
+	}, {
+		"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+		"title": "Pizze 06",
+		"content": "xin chao",
+		"price": 30000
+	}, {
+		"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+		"title": "Pizze 07",
+		"content": "xin chao",
+		"price": 50000
+	}
+]
