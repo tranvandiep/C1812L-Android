@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.gokisoft.c1812l.R;
 import com.gokisoft.c1812l.models.Food;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -23,6 +24,14 @@ public class FoodAdapter extends BaseAdapter {
 
     public FoodAdapter(Activity activity, List<Food> dataList) {
         this.activity = activity;
+        this.dataList = dataList;
+    }
+
+    public List<Food> getDataList() {
+        return dataList;
+    }
+
+    public void setDataList(List<Food> dataList) {
         this.dataList = dataList;
     }
 
@@ -53,7 +62,15 @@ public class FoodAdapter extends BaseAdapter {
 
         Food food = dataList.get(position);
 
-        thumbnail.setImageResource(food.getResId());
+        if(food.getThumbnail() == null || food.getThumbnail().isEmpty()) {
+            thumbnail.setImageResource(food.getResId());
+        } else {
+            //Hien thi bang link hinh anh
+            Picasso.get()
+                    .load(food.getThumbnail())
+                    .into(thumbnail);
+        }
+
         title.setText(food.getTitle());
         content.setText(food.getContent());
         price.setText(String.valueOf(food.getPrice()));

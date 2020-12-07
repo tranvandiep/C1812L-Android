@@ -15,8 +15,16 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.gokisoft.c1812l.adapters.FoodAdapter;
+import com.gokisoft.c1812l.config.Config;
 import com.gokisoft.c1812l.models.Food;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +42,9 @@ public class TestActivity extends AppCompatActivity {
         listView = findViewById(R.id.afo_listview);
 
 //        //fake data
-        dataList.add(new Food(R.drawable.food01, "Pizza 01", "Ok Ngon 01", 100000));
-        dataList.add(new Food(R.drawable.food02, "Pizza 02", "Ok Ngon 02", 120000));
-        dataList.add(new Food(R.drawable.food03, "Pizza 03", "Ok Ngon 03", 160000));
+//        dataList.add(new Food(R.drawable.food01, "Pizza 01", "Ok Ngon 01", 100000));
+//        dataList.add(new Food(R.drawable.food02, "Pizza 02", "Ok Ngon 02", 120000));
+//        dataList.add(new Food(R.drawable.food03, "Pizza 03", "Ok Ngon 03", 160000));
 
         //create adapter
         foodAdapter = new FoodAdapter(this, dataList);
@@ -44,6 +52,45 @@ public class TestActivity extends AppCompatActivity {
 
         //dang ky context menu
         registerForContextMenu(listView);
+
+        //Tai dc tai nguyen tren mang
+        Request request = new Request.Builder()
+                .url(Config.URL_FOOD)
+                .build();
+        OkHttpClient client = new OkHttpClient();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                //code => tai thanh cong
+                if (response.isSuccessful()) {
+                    final String json = response.body().string();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            displayListView(json);
+                        }
+                    });
+//                    Log.d(TestActivity.class.getName(), json);
+//                    Toast.makeText(TestActivity.this, json, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    private void displayListView(String json) {
+        //parse json => listview
+        Gson gson = new Gson();
+        TypeToken<List<Food>> typeToken = new TypeToken<List<Food>>() {};
+        dataList = gson.fromJson(json, typeToken.getType());
+
+        foodAdapter.setDataList(dataList);
+
+        foodAdapter.notifyDataSetChanged();
     }
 
     @Override

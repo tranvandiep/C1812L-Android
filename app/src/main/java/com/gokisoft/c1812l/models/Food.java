@@ -12,6 +12,7 @@ public class Food implements Serializable{
     int resId;
     String title, content;
     float price;
+    String thumbnail;
 
     public Food(int resId) {
         this.resId = resId;
@@ -22,6 +23,13 @@ public class Food implements Serializable{
         this.title = title;
         this.content = content;
         this.price = price;
+    }
+
+    public Food(String title, String content, float price, String thumbnail) {
+        this.title = title;
+        this.content = content;
+        this.price = price;
+        this.thumbnail = thumbnail;
     }
 
     public Food(String title, String content, float price) {
@@ -68,5 +76,13 @@ public class Food implements Serializable{
 
     public void set_id(int _id) {
         this._id = _id;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }
