@@ -12,15 +12,17 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".FruitActivity"></activity>
-        <activity android:name=".FoodActivity"></activity>
-        <activity android:name=".TestActivity">
+        <activity android:name=".FruitActivity" />
+        <activity android:name=".FoodActivity" />
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".MessageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
